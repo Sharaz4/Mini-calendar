@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calander</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            background: #642B73;
+            background: -webkit-linear-gradient(to right, #C6426E, #642B73);  
+            background: linear-gradient(to right, #C6426E, #642B73); 
+            margin: 13% auto;
+        }
+        .hero{
+            background-color: #fff;
+            width: 30%;
+            height: 300px;
+            display: flex;
+            justify-content: space-between;
+            border-radius: 20px;
+            margin: auto;
+            border: 1px solid #000;
+        }
+        .day-date{
+            display: grid;
+            text-align: center;
+            margin: auto;
+        }
+        .day{
+            font-size: 35px;
+            text-align: center;
+            padding: 5px 20px 20px;
+        }
+        .date{
+            font-size: 100px;
+            text-align: center;
+            padding: 20px 20px 5px;
+        }
+        .month-year{
+            display: grid;
+            background-color: brown;
+            border-radius: 0px 20px 20px 0px;
+            border-left: 1px solid black;
+            padding: 80px 20px;
+            text-align: center;
+            color: #fff;
+        }
+        .Month{
+            font-size: 35px;
+            padding: 20px 20px 10px;
+        }
+        .year{
+            font-size: 35px;
+            padding: 10px 20px 20px;;
+        }
+
+    </style>
+</head>
+<body>
+    
+<div class="hero">
+<div class="day-date">
+    <span class="date">00</span>
+    <span class="day">Monday</span>
+</div>
+<div class="month-year">
+    <span class="Month">June</span>
+    <span class="year">2024</span>
+</div>
+</div>
+
+<script>
+    let dates = document.getElementsByClassName("date")[0];
+    let day = document.getElementsByClassName("day")[0];
+    let Month = document.getElementsByClassName("Month")[0];
+    let year = document.getElementsByClassName("year")[0];
+
+    let WeekDays = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let allMonths = ["Juanary", "February", "March", "April", "Mey", "June", "July", "August", "September", "October", "November", "december"]
+
+    let currentTime = new Date();
+    console.log(currentTime.getUTCDay());
+
+    year.innerHTML = currentTime.getFullYear();
+    Month.innerHTML = allMonths[currentTime.getMonth()];
+    dates.innerHTML = (currentTime.getDate()< 10? "0" : "") + currentTime.getDate();
+    day.innerHTML = WeekDays[currentTime.getDay()];
+
+</script>
+</body>
+</html>
